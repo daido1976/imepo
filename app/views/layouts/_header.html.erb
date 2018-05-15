@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header page-scroll">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
+			<%= link_to "Imepo", root_path, class: "navbar-brand page-scroll" %> 
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="hidden">
+					<a href="#page-top"></a>
+				</li>
+				<li>
+				  <%= link_to "Mail", letter_opener_web_path, class: "page-scroll" %>
+				</li>
+				<% if user_signed_in? %>
+  				<li>
+  				  <%= link_to "Post", new_post_path, class: "page-scroll" %>
+  				</li>
+  				<li>
+  					<%= link_to "Profile", edit_user_registration_path, class: "page-scroll" %>
+  				</li>
+  				<li>
+  					<%= link_to "Logout", destroy_user_session_path, method: :delete, class: "page-scroll" %>
+  				</li>
+				<% else %>
+				  <li>
+  					<%= link_to "Login", new_user_session_path, class: "page-scroll" %>
+  				</li>
+  				<li>
+  					<%= link_to "Signup", new_user_registration_path, class: "page-scroll" %>
+  				</li>
+  			<% end %>
+			</ul>
+		</div>
+	</div>
+</nav>

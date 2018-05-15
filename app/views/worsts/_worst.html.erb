@@ -1,0 +1,15 @@
+<% if user_signed_in? %>
+  <% if post.worst_user(current_user.id) %>
+    <%= button_to post_worst_path(worst, post_id: post.id), method: :delete, class: "btn btn-danger" do %>
+      <span>最悪!!! <%= post.worsts_count %></span>
+    <% end %>
+  <% else %>
+    <%= button_to post_worsts_path(post), method: :post, class: "btn btn-danger" do %>
+      <span>最悪 <%= post.worsts_count %></span>
+    <% end %>
+  <% end %>
+<% else %>
+  <button class="btn btn-danger" type="button" disabled>
+    <span>最悪 <%= post.worsts_count %></span>
+  </button>
+<% end %>
